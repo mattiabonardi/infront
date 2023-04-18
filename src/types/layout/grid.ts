@@ -15,23 +15,23 @@ export enum GridOrientation {
  */
 export interface LayoutGridCols {
   orientation: GridOrientation.COLUMN;
+  sections: LayoutSection[];
   /** style */
-  style: {
+  style?: {
     /** mobile system */
-    mobile: LayoutGridColsResponsive;
+    default?: LayoutGridColsResponsive;
     /** tablet system */
     tablet?: LayoutGridColsResponsive;
     /** desktop system */
     desktop?: LayoutGridColsResponsive;
   };
-  sections: LayoutSection[];
 }
 
 export interface LayoutGridColsResponsive {
   /** Number of columns */
-  cols: number;
+  cols?: number;
   /** Space between cols (px) */
-  gap: number;
+  gap?: number;
 }
 
 /**
@@ -39,21 +39,21 @@ export interface LayoutGridColsResponsive {
  */
 export interface LayoutGridRows {
   orientation: GridOrientation.ROW;
+  sections: LayoutSection[];
   /** style */
-  style: {
+  style?: {
     /** mobile system */
-    mobile: LayoutGridRowsResponsive;
+    default?: LayoutGridRowsResponsive;
     /** tablet system */
     tablet?: LayoutGridRowsResponsive;
     /** desktop system */
     desktop?: LayoutGridColsResponsive;
   };
-  sections: LayoutSection[];
 }
 
 export interface LayoutGridRowsResponsive {
   /** Number of columns */
-  cols: number;
+  rows?: number;
   /** Space between cols (px) */
-  gap: number;
+  gap?: number;
 }

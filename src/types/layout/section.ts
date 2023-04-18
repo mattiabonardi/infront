@@ -3,9 +3,9 @@ import { Widget } from "../components/widget";
 
 export interface LayoutSection {
   /** style */
-  style: {
+  style?: {
     /** mobile system */
-    default: LayoutSectionResponsive;
+    default?: LayoutSectionResponsive;
     /** tablet system */
     tablet?: LayoutSectionResponsive;
     /** desktop system */
@@ -16,15 +16,15 @@ export interface LayoutSection {
 
 interface LayoutSectionResponsive {
   /** how many horizontal slots it occupes */
-  colSpan: number;
+  colSpan?: number;
   /** which column it starts from */
-  colStart: number;
+  colStart?: number;
   /** which column it ends from */
-  colEnd: number;
+  colEnd?: number;
   /** how many vertical slots it occupes */
-  rowSpan: number;
+  rowSpan?: number;
   /** which row it starts from */
-  rowStart: number;
+  rowStart?: number;
   /** which row it ends from  */
-  rowEnd: number;
+  rowEnd?: number;
 }

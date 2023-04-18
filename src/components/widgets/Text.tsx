@@ -7,5 +7,5 @@ import { IText } from "@/types/components/widget";
  */
 export const Text: React.FC<IText> = (props) => {
   console.log("TEXT", props);
-  return <div>TEXT</div>;
+  return <div>{props.data.cells[0].value}</div>;
 };
