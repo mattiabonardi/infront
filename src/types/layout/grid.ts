@@ -1,9 +1,9 @@
-import { ISection } from "./section";
+import { LayoutSection } from "./section";
 
 /**
  * Grid layout
  */
-export type IGrid = IGridCols | IGridRows;
+export type LayoutGrid = LayoutGridCols | LayoutGridRows;
 
 export enum GridOrientation {
   COLUMN,
@@ -13,21 +13,21 @@ export enum GridOrientation {
 /**
  * Grid layout based on columns
  */
-export interface IGridCols {
+export interface LayoutGridCols {
   orientation: GridOrientation.COLUMN;
   /** style */
   style: {
     /** mobile system */
-    mobile: GridColsResponsive;
+    mobile: LayoutGridColsResponsive;
     /** tablet system */
-    tablet?: GridColsResponsive;
+    tablet?: LayoutGridColsResponsive;
     /** desktop system */
-    desktop?: GridColsResponsive;
+    desktop?: LayoutGridColsResponsive;
   };
-  sections: ISection[];
+  sections: LayoutSection[];
 }
 
-export interface GridColsResponsive {
+export interface LayoutGridColsResponsive {
   /** Number of columns */
   cols: number;
   /** Space between cols (px) */
@@ -37,21 +37,21 @@ export interface GridColsResponsive {
 /**
  * Grid layout based on rows
  */
-export interface IGridRows {
+export interface LayoutGridRows {
   orientation: GridOrientation.ROW;
   /** style */
   style: {
     /** mobile system */
-    mobile: GridRowsResponsive;
+    mobile: LayoutGridRowsResponsive;
     /** tablet system */
-    tablet?: GridRowsResponsive;
+    tablet?: LayoutGridRowsResponsive;
     /** desktop system */
-    desktop?: GridColsResponsive;
+    desktop?: LayoutGridColsResponsive;
   };
-  sections: ISection[];
+  sections: LayoutSection[];
 }
 
-export interface GridRowsResponsive {
+export interface LayoutGridRowsResponsive {
   /** Number of columns */
   cols: number;
   /** Space between cols (px) */

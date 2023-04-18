@@ -1,20 +1,20 @@
-import { IGrid } from "./grid";
+import { LayoutGrid } from "./grid";
 import { Widget } from "../components/widget";
 
-export interface ISection {
+export interface LayoutSection {
   /** style */
   style: {
     /** mobile system */
-    default: SectionResponsive;
+    default: LayoutSectionResponsive;
     /** tablet system */
-    tablet?: SectionResponsive;
+    tablet?: LayoutSectionResponsive;
     /** desktop system */
-    desktop?: SectionResponsive;
+    desktop?: LayoutSectionResponsive;
   };
-  child: Widget | IGrid;
+  child: Widget | LayoutGrid;
 }
 
-interface SectionResponsive {
+interface LayoutSectionResponsive {
   /** how many horizontal slots it occupes */
   colSpan: number;
   /** which column it starts from */

@@ -1,9 +1,9 @@
-import { IGrid } from "./grid";
+import { LayoutGrid } from "./grid";
 
 /**
  * UI View (dynamic application page)
  */
 export interface IView {
   id: string;
-  layout: IGrid;
+  layout: LayoutGrid;
 }

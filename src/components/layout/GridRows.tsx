@@ -1,14 +1,14 @@
-import { LayoutGridCols } from "@/types/layout/grid";
+import { LayoutGridRows } from "@/types/layout/grid";
 import React from "react";
 import { Section } from "./Section";
 import { LayoutSection } from "@/types/layout/section";
 
 /**
- * Grid layout based on columns
+ * Grid layout based on rows
  * @param props
  * @returns
  */
-export const GridCols: React.FC<LayoutGridCols> = (props) => {
+export const GridRows: React.FC<LayoutGridRows> = (props) => {
   return (
     <div>
       {props.sections.map((section: LayoutSection, index: number) => {

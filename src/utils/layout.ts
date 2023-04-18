@@ -1,11 +1,27 @@
-import { GridOrientation, IGrid } from "@/types/layout/grid";
+import {
+  GridOrientation,
+  LayoutGrid,
+  LayoutGridCols,
+  LayoutGridRows,
+} from "@/types/layout/grid";
+
+/**
+ * is object an instance of LayoutGrid
+ * @param object
+ * @returns
+ */
+function instanceOfLayoutGrid(object: any): object is LayoutGrid {
+  return "orientation" in object;
+}
 
 /**
  * Return true if layout parameter is GridCols
  * @param layout
  * @returns
  */
-function isGridCols(layout: IGrid) {
+function instanceOfLayoutGridCols(
+  layout: LayoutGrid
+): layout is LayoutGridCols {
   return layout.orientation == GridOrientation.COLUMN;
 }
 
@@ -14,7 +30,9 @@ function isGridCols(layout: IGrid) {
  * @param layout
  * @returns
  */
-function isGridRows(layout: IGrid) {
+function instanceOfLayoutGridRows(
+  layout: LayoutGrid
+): layout is LayoutGridRows {
   return layout.orientation == GridOrientation.ROW;
 }
 
@@ -22,8 +40,9 @@ function isGridRows(layout: IGrid) {
  * Layout Utils
  */
 const LayoutUtils = {
-  isGridCols,
-  isGridRows,
+  instanceOfLayoutGrid,
+  instanceOfLayoutGridCols,
+  instanceOfLayoutGridRows,
 };
 
 export default LayoutUtils;

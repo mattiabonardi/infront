@@ -1,19 +1,22 @@
 import { IView } from "@/types/layout/view";
 import LayoutUtils from "@/utils/layout";
 import { GridCols } from "./GridCols";
-  
-  export const View: React.FC<IView> = (props) => {
-    return (
-      <div id={props.id} className="view">
-        {
-          LayoutUtils.isGridCols(props.layout) ?
-          <GridCols></GridCols> :
-          <GridROw
+import { GridRows } from "./GridRows";
+import styles from "@/styles/layout.module.css";
 
-          } else {
-
-          }
-        }
-      </div>
-    )
-  }
+/**
+ * View, the Dynamic Application Page
+ * @param props
+ * @returns
+ */
+export const View: React.FC<IView> = (props) => {
+  return (
+    <div id={props.id} className={styles.view}>
+      {LayoutUtils.instanceOfLayoutGridCols(props.layout) ? (
+        <GridCols {...props.layout}></GridCols>
+      ) : (
+        <GridRows {...props.layout}></GridRows>
+      )}
+    </div>
+  );
+};

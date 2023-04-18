@@ -42,6 +42,11 @@ export interface IRadioButtons extends Widget {
   data: DataTree;
 }
 
+export interface ISelect extends Widget {
+  type: WidgetType.SELECT;
+  data: DataTree;
+}
+
 export interface IText extends Widget {
   type: WidgetType.TEXT;
   data: DataTree;
