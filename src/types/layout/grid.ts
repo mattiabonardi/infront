@@ -18,12 +18,18 @@ export interface LayoutGridCols {
   sections: LayoutSection[];
   /** style */
   style?: {
-    /** mobile system */
+    /** < 640px */
     default?: LayoutGridColsResponsive;
-    /** tablet system */
-    tablet?: LayoutGridColsResponsive;
-    /** desktop system */
-    desktop?: LayoutGridColsResponsive;
+    /** small 640px */
+    sm?: LayoutGridColsResponsive;
+    /** medium 768px */
+    md?: LayoutGridColsResponsive;
+    /** large 1024px */
+    lg?: LayoutGridColsResponsive;
+    /** extra large 1280px */
+    xl?: LayoutGridColsResponsive;
+    /** 2-extra large 1536 */
+    xxl?: LayoutGridColsResponsive;
   };
 }
 
@@ -42,12 +48,18 @@ export interface LayoutGridRows {
   sections: LayoutSection[];
   /** style */
   style?: {
-    /** mobile system */
+    /** < 640px */
     default?: LayoutGridRowsResponsive;
-    /** tablet system */
-    tablet?: LayoutGridRowsResponsive;
-    /** desktop system */
-    desktop?: LayoutGridColsResponsive;
+    /** small 640px */
+    sm?: LayoutGridRowsResponsive;
+    /** medium 768px */
+    md?: LayoutGridRowsResponsive;
+    /** large 1024px */
+    lg?: LayoutGridRowsResponsive;
+    /** extra large 1280px */
+    xl?: LayoutGridRowsResponsive;
+    /** 2-extra large 1536 */
+    xxl?: LayoutGridRowsResponsive;
   };
 }
 

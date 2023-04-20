@@ -4,12 +4,18 @@ import { Widget } from "../components/widget";
 export interface LayoutSection {
   /** style */
   style?: {
-    /** mobile system */
+    /** < 640px */
     default?: LayoutSectionResponsive;
-    /** tablet system */
-    tablet?: LayoutSectionResponsive;
-    /** desktop system */
-    desktop?: LayoutSectionResponsive;
+    /** small 640px */
+    sm?: LayoutSectionResponsive;
+    /** medium 768px */
+    md?: LayoutSectionResponsive;
+    /** large 1024px */
+    lg?: LayoutSectionResponsive;
+    /** extra large 1280px */
+    xl?: LayoutSectionResponsive;
+    /** 2-extra large 1536 */
+    xxl?: LayoutSectionResponsive;
   };
   child: Widget | LayoutGrid;
 }
