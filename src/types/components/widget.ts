@@ -2,7 +2,7 @@ import { DataCell } from "../data/cell";
 import { DataGrid } from "../data/grid";
 import { DataTree } from "../data/tree";
 
-export interface Widget {
+export interface IWidget {
   type: WidgetType;
   id: string;
 }
@@ -27,37 +27,37 @@ export enum WidgetType {
   TREE,
 }
 
-export interface IButton extends Widget {
+export interface IButton extends IWidget {
   type: WidgetType.BUTTON;
   data: DataCell;
 }
 
-export interface IDataTable extends Widget {
+export interface IDataTable extends IWidget {
   type: WidgetType.DATA_TABLE;
   data: DataGrid;
 }
 
-export interface IRadioButtons extends Widget {
+export interface IRadioButtons extends IWidget {
   type: WidgetType.RADIO_BUTTONS;
   data: DataTree;
 }
 
-export interface ISelect extends Widget {
+export interface ISelect extends IWidget {
   type: WidgetType.SELECT;
   data: DataTree;
 }
 
-export interface IText extends Widget {
+export interface IText extends IWidget {
   type: WidgetType.TEXT;
   data: DataTree;
 }
 
-export interface ITextfield extends Widget {
+export interface ITextfield extends IWidget {
   type: WidgetType.TEXTFIELD;
   data: DataCell;
 }
 
-export interface ITree extends Widget {
+export interface ITree extends IWidget {
   type: WidgetType.TREE;
   data: DataTree;
 }

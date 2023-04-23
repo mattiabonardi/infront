@@ -1,8 +1,10 @@
 import { IView } from "@/types/layout/view";
-import LayoutUtils from "@/utils/layout";
-import { GridCols } from "./GridCols";
-import { GridRows } from "./GridRows";
 import styles from "@/styles/layout.module.css";
+import { Grid } from "./Grid";
+import { setViewport } from "@/store/reduces/general";
+import { Device } from "@/types/general";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 /**
  * View, the Dynamic Application Page
@@ -10,13 +12,44 @@ import styles from "@/styles/layout.module.css";
  * @returns
  */
 export const View: React.FC<IView> = (props) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const saveViewport = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      let device: Device;
+      if (width < Device.SM) {
+        device = Device.DEFAULT;
+      } else if (width < Device.MD) {
+        device = Device.SM;
+      } else if (width < Device.LG) {
+        device = Device.MD;
+      } else if (width < Device.XL) {
+        device = Device.LG;
+      } else if (width < Device.XXL) {
+        device = Device.XL;
+      } else {
+        device = Device.XXL;
+      }
+      dispatch(
+        setViewport({
+          viewport: {
+            width,
+            height,
+            device,
+          },
+        })
+      );
+    };
+    window.addEventListener("resize", saveViewport);
+    saveViewport();
+    return () => window.removeEventListener("resize", saveViewport);
+  }, [dispatch]);
+
   return (
     <div id={props.id} className={styles.view}>
-      {LayoutUtils.instanceOfLayoutGridCols(props.layout) ? (
-        <GridCols {...props.layout}></GridCols>
-      ) : (
-        <GridRows {...props.layout}></GridRows>
-      )}
+      <Grid {...props.layout}></Grid>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { LayoutGrid } from "./grid";
-import { Widget } from "../components/widget";
+import { IWidget } from "../components/widget";
 
 export interface LayoutSection {
   /** style */
@@ -17,7 +17,7 @@ export interface LayoutSection {
     /** 2-extra large 1536 */
     xxl?: LayoutSectionResponsive;
   };
-  child: Widget | LayoutGrid;
+  child: IWidget | LayoutGrid;
 }
 
 interface LayoutSectionResponsive {
