@@ -27,6 +27,14 @@ export async function getServerSideProps() {
       id: "showcase",
       layout: {
         orientation: GridOrientation.COLUMN,
+        style: {
+          default: {
+            cols: 1
+          },
+          lg: {
+            cols: 3
+          }
+        },
         sections: [
           {
             child: {
@@ -38,6 +46,36 @@ export async function getServerSideProps() {
                   {
                     type: DataType.DATA_CELL,
                     value: "Infront Showcase",
+                  },
+                ],
+              },
+            } as IText,
+          },
+          {
+            child: {
+              id: "",
+              type: WidgetType.TEXT,
+              data: {
+                type: DataType.DATA_TREE,
+                cells: [
+                  {
+                    type: DataType.DATA_CELL,
+                    value: "Infront Showcase 2",
+                  },
+                ],
+              },
+            } as IText,
+          },
+          {
+            child: {
+              id: "",
+              type: WidgetType.TEXT,
+              data: {
+                type: DataType.DATA_TREE,
+                cells: [
+                  {
+                    type: DataType.DATA_CELL,
+                    value: "Infront Showcase 3",
                   },
                 ],
               },

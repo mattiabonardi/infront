@@ -15,62 +15,49 @@ import { getViewport } from "@/store/reduces/general";
 export const Section: React.FC<LayoutSection> = (props) => {
   const viewport = useSelector(getViewport);
 
-  let style: React.CSSProperties = {};
+  let style: React.CSSProperties = {
+    gridColumn:
+      props.style?.default?.colSpan ??
+      `span ${props.style?.default?.colSpan} / span ${props.style?.default?.colSpan}`,
+    gridColumnStart: props.style?.default?.rowStart,
+    gridColumnEnd: props.style?.default?.rowStart,
+  };
 
   switch (viewport.device) {
-    case Device.DEFAULT:
-      style = {
-        gridColumn:
-          props.style?.default?.colSpan ??
-          `span ${props.style?.default?.colSpan} / span ${props.style?.default?.colSpan}`,
-        gridColumnStart: props.style?.default?.rowStart,
-        gridColumnEnd: props.style?.default?.rowStart,
-      };
-      break;
     case Device.SM:
-      style = {
-        gridColumn:
-          props.style?.sm?.colSpan ??
-          `span ${props.style?.sm?.colSpan} / span ${props.style?.sm?.colSpan}`,
-        gridColumnStart: props.style?.sm?.rowStart,
-        gridColumnEnd: props.style?.sm?.rowStart,
-      };
+      style.gridColumn = props.style?.sm?.colSpan
+        ? `span ${props.style?.sm?.colSpan} / span ${props.style?.sm?.colSpan}`
+        : style.gridColumn;
+      style.gridColumnStart = props.style?.sm?.rowStart;
+      style.gridColumnEnd = props.style?.sm?.rowStart;
       break;
     case Device.MD:
-      style = {
-        gridColumn:
-          props.style?.md?.colSpan ??
-          `span ${props.style?.md?.colSpan} / span ${props.style?.md?.colSpan}`,
-        gridColumnStart: props.style?.md?.rowStart,
-        gridColumnEnd: props.style?.md?.rowStart,
-      };
+      style.gridColumn = props.style?.md?.colSpan
+        ? `span ${props.style?.md?.colSpan} / span ${props.style?.md?.colSpan}`
+        : style.gridColumn;
+      style.gridColumnStart = props.style?.md?.rowStart;
+      style.gridColumnEnd = props.style?.md?.rowStart;
       break;
     case Device.LG:
-      style = {
-        gridColumn:
-          props.style?.lg?.colSpan ??
-          `span ${props.style?.lg?.colSpan} / span ${props.style?.lg?.colSpan}`,
-        gridColumnStart: props.style?.lg?.rowStart,
-        gridColumnEnd: props.style?.lg?.rowStart,
-      };
+      style.gridColumn = props.style?.lg?.colSpan
+        ? `span ${props.style?.lg?.colSpan} / span ${props.style?.lg?.colSpan}`
+        : style.gridColumn;
+      style.gridColumnStart = props.style?.lg?.rowStart;
+      style.gridColumnEnd = props.style?.lg?.rowStart;
       break;
     case Device.XL:
-      style = {
-        gridColumn:
-          props.style?.xl?.colSpan ??
-          `span ${props.style?.xl?.colSpan} / span ${props.style?.xl?.colSpan}`,
-        gridColumnStart: props.style?.xl?.rowStart,
-        gridColumnEnd: props.style?.xl?.rowStart,
-      };
+      style.gridColumn = props.style?.xl?.colSpan
+        ? `span ${props.style?.xl?.colSpan} / span ${props.style?.xl?.colSpan}`
+        : style.gridColumn;
+      style.gridColumnStart = props.style?.xl?.rowStart;
+      style.gridColumnEnd = props.style?.xl?.rowStart;
       break;
     case Device.XXL:
-      style = {
-        gridColumn:
-          props.style?.xxl?.colSpan ??
-          `span ${props.style?.xxl?.colSpan} / span ${props.style?.xxl?.colSpan}`,
-        gridColumnStart: props.style?.xxl?.rowStart,
-        gridColumnEnd: props.style?.xxl?.rowStart,
-      };
+      style.gridColumn = props.style?.xxl?.colSpan
+        ? `span ${props.style?.xxl?.colSpan} / span ${props.style?.xxl?.colSpan}`
+        : style.gridColumn;
+      style.gridColumnStart = props.style?.xxl?.rowStart;
+      style.gridColumnEnd = props.style?.xxl?.rowStart;
       break;
   }
 

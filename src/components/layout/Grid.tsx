@@ -33,57 +33,45 @@ export const Grid: React.FC<LayoutGrid> = (props) => {
 const GridCols: React.FC<LayoutGridCols> = (props) => {
   const viewport = useSelector(getViewport);
 
-  let style: React.CSSProperties = {};
+  let style: React.CSSProperties = {
+    gridTemplateColumns: props.style?.default?.cols
+      ? `repeat(${props.style?.default?.cols}, minmax(0, 1fr))`
+      : undefined,
+    gap: props.style?.default?.gap,
+  };
 
   switch (viewport.device) {
-    case Device.DEFAULT:
-      style = {
-        // default
-        gridTemplateColumns:
-          props.style?.default?.cols ??
-          `repeat(${props.style?.default?.cols}, minmax(0, 1fr))`,
-        gap: props.style?.default?.gap,
-      };
-      break;
     case Device.SM:
-      style = {
-        gridTemplateColumns:
-          props.style?.sm?.cols ??
-          `repeat(${props.style?.sm?.cols}, minmax(0, 1fr))`,
-        gap: props.style?.sm?.gap,
-      };
+      style.gridTemplateColumns = props.style?.sm?.cols
+        ? `repeat(${props.style?.sm?.cols}, minmax(0, 1fr))`
+        : style.gridTemplateColumns;
+      style.gap = props.style?.sm?.gap ? props.style?.sm?.gap : style.gap;
       break;
     case Device.MD:
-      style = {
-        gridTemplateColumns:
-          props.style?.md?.cols ??
-          `repeat(${props.style?.md?.cols}, minmax(0, 1fr))`,
-        gap: props.style?.md?.gap,
-      };
+      style.gridTemplateColumns = props.style?.md?.cols
+        ? `repeat(${props.style?.md?.cols}, minmax(0, 1fr))`
+        : style.gridTemplateColumns;
+      style.gap = props.style?.md?.gap ? props.style?.md?.gap : style.gap;
+
       break;
     case Device.LG:
-      style = {
-        gridTemplateColumns:
-          props.style?.lg?.cols ??
-          `repeat(${props.style?.lg?.cols}, minmax(0, 1fr))`,
-        gap: props.style?.lg?.gap,
-      };
+      style.gridTemplateColumns = props.style?.lg?.cols
+        ? `repeat(${props.style?.lg?.cols}, minmax(0, 1fr))`
+        : style.gridTemplateColumns;
+      style.gap = props.style?.lg?.gap ? props.style?.lg?.gap : style.gap;
+
       break;
     case Device.XL:
-      style = {
-        gridTemplateColumns:
-          props.style?.xl?.cols ??
-          `repeat(${props.style?.xl?.cols}, minmax(0, 1fr))`,
-        gap: props.style?.xl?.gap,
-      };
+      style.gridTemplateColumns = props.style?.xl?.cols
+        ? `repeat(${props.style?.xl?.cols}, minmax(0, 1fr))`
+        : style.gridTemplateColumns;
+      style.gap = props.style?.xl?.gap ? props.style?.xl?.gap : style.gap;
       break;
     case Device.XXL:
-      style = {
-        gridTemplateColumns:
-          props.style?.xxl?.cols ??
-          `repeat(${props.style?.xxl?.cols}, minmax(0, 1fr))`,
-        gap: props.style?.xxl?.gap,
-      };
+      style.gridTemplateColumns = props.style?.xxl?.cols
+        ? `repeat(${props.style?.xxl?.cols}, minmax(0, 1fr))`
+        : style.gridTemplateColumns;
+      style.gap = props.style?.xxl?.gap ? props.style?.xxl?.gap : style.gap;
       break;
   }
 
