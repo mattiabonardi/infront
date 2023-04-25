@@ -5,5 +5,10 @@ import { LayoutGrid } from "./grid";
  */
 export interface IView {
   id: string;
+  meta: ViewMetadata;
   layout: LayoutGrid;
+}
+
+export interface ViewMetadata {
+  title?: string;
 }

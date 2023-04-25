@@ -25,6 +25,9 @@ export async function getServerSideProps() {
   const props: ShowcaseProps = {
     view: {
       id: "showcase",
+      meta: {
+        title: "Infront Showcase",
+      },
       layout: {
         orientation: GridOrientation.COLUMN,
         style: {

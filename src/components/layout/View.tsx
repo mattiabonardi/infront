@@ -5,6 +5,7 @@ import { setViewport } from "@/store/reduces/general";
 import { Device } from "@/types/general";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import Head from "next/head";
 
 /**
  * View, the Dynamic Application Page
@@ -48,8 +49,13 @@ export const View: React.FC<IView> = (props) => {
   }, [dispatch]);
 
   return (
-    <div id={props.id} className={styles.view}>
-      <Grid {...props.layout}></Grid>
-    </div>
+    <>
+      <Head>
+        <title>{props.meta.title ? props.meta.title : ""}</title>
+      </Head>
+      <div id={props.id} className={styles.view}>
+        <Grid {...props.layout}></Grid>
+      </div>
+    </>
   );
 };
