@@ -1,4 +1,6 @@
+/* eslint-disable react/no-children-prop */
 import { IText } from "@/types/components/widget";
+import ReactMarkdown from "react-markdown";
 
 /**
  * Text component
@@ -6,6 +8,5 @@ import { IText } from "@/types/components/widget";
  * @returns
  */
 export const Text: React.FC<IText> = (props) => {
-  console.log("TEXT", props);
-  return <div>{props.data.cells[0].value}</div>;
+  return <ReactMarkdown children={props.data.value as string} />;
 };

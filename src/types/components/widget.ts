@@ -49,7 +49,7 @@ export interface ISelect extends IWidget {
 
 export interface IText extends IWidget {
   type: WidgetType.TEXT;
-  data: DataTree;
+  data: DataCell;
 }
 
 export interface ITextfield extends IWidget {
